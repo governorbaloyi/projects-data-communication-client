@@ -21,7 +21,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    this.timer = setInterval(() => this.updateState(), 10000);
+    this.timer = setInterval(() => {
+      this.updateState()
+    }, 1000)
   }
 
   componentWillMount = () => {
@@ -50,17 +52,23 @@ class App extends React.Component {
                   <tr>
                     <td>Light</td>
                     <td>{this.state.light.state === 1 ? "Off" : "On"}</td>
-                    <td><button className={this.state.light.state == 1 ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"} onClick={this.toggleLight}>{this.state.light.state === 1 ? "Switch On" : "Switch Off"}</button></td>
+                    <td><button className={this.state.light.state === 1 ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"} onClick={this.toggleLight}>{this.state.light.state === 1 ? "Switch On" : "Switch Off"}</button></td>
                   </tr>
                   <tr>
                     <td>Heater</td>
                     <td>{this.state.heater.state === 1 ? "Off" : "On"}</td>
-                    <td><button className={this.state.heater.state == 1 ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"} onClick={this.toggleHeater}>{this.state.heater.state === 1 ? "Switch On" : "Switch Off"}</button></td>
+                    <td><button className={this.state.heater.state === 1 ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"} onClick={this.toggleHeater}>{this.state.heater.state === 1 ? "Switch On" : "Switch Off"}</button></td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colSpan="3"><button onClick={this.micOn} className="btn btn-sm btn-dark m-2">Mic on</button><button onClick={this.micOff} className="btn btn-sm btn-dark m-2">Mic off</button><button onClick={this.selfTest} className="btn btn-sm btn-primary m-2">Self Test</button><button onClick={this.allOff} className="btn btn-sm btn-warning m-2">All Off</button><button onClick={this.allOn} className="btn btn-sm btn-primary m-2">All On</button></td>
+                    <td colSpan="3">
+                      <button onClick={this.micOn} className="btn btn-sm btn-dark m-2">Mic on</button>
+                      <button onClick={this.micOff} className="btn btn-sm btn-dark m-2">Mic off</button>
+                      <button onClick={this.selfTest} className="btn btn-sm btn-primary m-2">Self Test</button>
+                      <button onClick={this.allOff} className="btn btn-sm btn-warning m-2">All Off</button>
+                      <button onClick={this.allOn} className="btn btn-sm btn-primary m-2">All On</button>
+                      </td>
                   </tr>
                 </tfoot>
               </table>
